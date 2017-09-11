@@ -107,6 +107,7 @@ def deploy_init(settings):
             "--machine-type %(CLUSTER_MACHINE_TYPE)s",
             #"--local-ssd-count 1",
             "--num-nodes %(CLUSTER_NUM_NODES)s",
+            "--scopes", "https://www.googleapis.com/auth/devstorage.read_write"
         ]) % settings, verbose=False, errors_to_ignore=["already exists"])
 
         run(" ".join([

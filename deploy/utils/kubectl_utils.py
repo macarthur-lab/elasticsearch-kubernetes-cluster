@@ -1,7 +1,6 @@
 import logging
 from deploy.utils.constants import DEPLOYABLE_COMPONENTS
 from utils.shell_utils import run
-import sys
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s')
 logger = logging.getLogger()

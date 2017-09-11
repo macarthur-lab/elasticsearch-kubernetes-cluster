@@ -16,7 +16,7 @@ from deploy.utils.kubectl_utils import get_pod_name, get_service_name, \
 from utils.shell_utils import run, wait_for, run_in_background
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s')
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
@@ -343,7 +343,6 @@ def delete_all(deployment_target):
         "deploy/kubernetes/shared-settings.yaml",
         "deploy/kubernetes/%(deployment_target)s-settings.yaml" % locals(),
     ], settings)
-
 
     if settings.get("DEPLOY_TO_PREFIX") == "gcloud":
         run("gcloud container clusters delete --project %(GCLOUD_PROJECT)s --zone %(GCLOUD_ZONE)s --no-async %(CLUSTER_NAME)s" % settings, is_interactive=True)
